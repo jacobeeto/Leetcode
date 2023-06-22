@@ -1,0 +1,27 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        #need dictionary to get values from both word
+        #dictionary key = letter, value = number of occurences
+
+        #check length of strings to see if unequal
+        if len(s) != len(t):
+            return False
+
+        numberOfS, numberOfT = {}, {}
+        #iterating through number of letters with range()
+        for i in range(len(s)):
+            #.get() grabs the value of the key value pair without an error
+            # the 0 in ([s[i]],0)] states that if there is no value, get 0
+            numberOfS[s[i]] = 1 + numberOfS.get(s[i],0)
+            numberOfT[t[i]] = 1 + numberOfT.get(t[i],0)
+
+        #iterate through the hashmap to see if values are equal
+        if  numberOfS != numberOfT:
+            return False
+        
+        return True
