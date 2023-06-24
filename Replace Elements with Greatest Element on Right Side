@@ -1,0 +1,14 @@
+class Solution(object):
+    def replaceElements(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: List[int]
+        """
+        #test cases all not passed, runtime error 72/90
+        solution = []
+
+        for i in range(len(arr)-1):
+            newArr = arr[i+1:len(arr)]
+            solution.append(max(newArr))
+        solution.append(-1)
+        return solution
